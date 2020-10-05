@@ -1,25 +1,26 @@
 import React from 'react'
 import {store} from '../App'
 
-const Counter = () => {
+const Counter = (props) => {
 
-        const increment = () =>{
-           store.dispatch({type: 'INCREASE', payload: `Added ${store.getState().value}!`})
-        }
+    const increase= () => {
+        store.dispatch({type: 'INCREASE', payload: `added ${store.getState().value}`})  
+    }
 
-        const decrement = () =>{
-            store.dispatch({type:'DECREASE', payload: `sub ${store.getState().value}!`})
-        }
+    const decrease = () =>{
+        store.dispatch({type: 'DECREASE', payload: `minus ${store.getState().value}`})
+    }
+        
     
 
     return (
         <div>
         <div class="counter" id='counter'>{store.getState().count}</div> 
         <div>
-            {store.getState().message}
+           
         </div>
-        <button onClick = {increment}> Add  </button> 
-        <button onClick = {decrement}> Minus  </button> 
+        <button onClick = {increase}>Add </button> 
+        <button onClick = {decrease}>Minus </button> 
        </div>
     );
 };
